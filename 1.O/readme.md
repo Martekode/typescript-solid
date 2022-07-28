@@ -32,3 +32,105 @@ Now add another animal (you can choose your favorite animal), and make sure it m
 Did you notice you needed to alter the Zoo object even when all you did was add a new Animal class? Would it not be much better to move the `makeSound` function to each Animal class, so each animal can decide for himself what sound he makes instead of the Zoo class?
 
 Create a `makeSound` function to each Animal class and remove the giant switch from the Zoo class. Now you can easily add new animals without altering an existing class!
+
+```ts
+interface iMakeSound{
+    makeSound():string;
+}
+
+class Animal {
+    protected _name: string;
+    protected _type: string;
+    protected _sound: string;
+    public constructor(name:string,type:string,sound:string){
+        this._type = type;
+        this._sound = sound;
+        this._name = name
+    }
+
+    get type() {
+        return this._type;
+    }
+    makeSound():string{
+        return this._sound;
+    }
+
+}
+
+class Dog extends Animal implements iMakeSound{
+    public constructor(name:string,type:string,sound:string){
+        super(name,type,sound)
+    }
+    set name(value) {
+        this._name = value;
+    }
+
+    get name() {
+        return this._name;
+    }
+
+    get type() {
+        return this._type;
+    }
+
+}
+
+class Cat extends Animal implements iMakeSound{
+    constructor(name:string,type:string,sound:string){
+        super(name,type,sound)
+    }
+    set name(value) {
+        this._name = value;
+    }
+
+    get name() {
+        return this._name;
+    }
+
+    get type() {
+        return this._type;
+    }
+}
+
+class Parrot extends Animal implements iMakeSound{
+    public constructor(name:string,type:string,sound:string){
+        super(name,type,sound)
+    }
+    set name(value) {
+        this._name = value;
+    }
+
+    get name() {
+        return this._name;
+    }
+
+    get type() {
+        return this._type;
+    }
+}
+
+class Zoo {
+    private _animals : Array<Animal> = new Array<Animal>();
+
+    public addAnimal(animal: Animal) {
+        this._animals.push(animal);
+    }
+
+    get animals(): Array<Animal> {
+        return this._animals;
+    }
+}
+let zoo = new Zoo;
+zoo.addAnimal(new Cat('bobby',"cat","miaw"));
+zoo.addAnimal(new Dog("fifi","dog","woof"));
+zoo.addAnimal(new Parrot("rikkert34","parrot","look at me, fuck on me, look at, UH"));
+
+zoo.animals.forEach((animal: Animal) => {
+    document.querySelector('#target').innerHTML += (animal.type + ": " + animal.makeSound() + "<br>");
+});
+```
+made an interface that states the methods that are required for every class that needs it. we extend from animal so that we also take over the properties. I wanted to do the properties inside the interface but that's not possible. (well kindoff) It works for public porperties and getters wich are methods and would work either way. This is not conveniant sinds i want private or protected properties, so that's why i make an animal class to extend from. This is how i tranfer the properties to the child classes with protect. So this task ends up being a combination of interface and extentions from parent class. The interface is usable for all classes that need to make sound. 
+
+i also learned about generics, these are represented by ```<Generic>``` and imply the type of content of an array. i had some errors with them sinds it checked for "objectss" and it needed to check for animal.
+
+The classes were already seperated but contained repeated code that we eliminated with the parent class animal. defining the porperties are done in contructors instead of literally at instantiating. i learned to extend and implement at the same time.
