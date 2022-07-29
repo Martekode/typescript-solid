@@ -25,7 +25,7 @@ interface iHaveDiscountCalculations {
   apply(price: number): number;
   showCalculation(price: number): string;
 }
-//created a parent class to extend the parameters from and likewise
+//created a parent class to extend the properties from and likewise
 //for the constructor
 class Discount {
   protected _value: number;
