@@ -62,7 +62,7 @@ class FixedDiscount extends Discount implements iHaveDiscountCalculations {
     return price + "€ -  " + this._value + "€ (min 0 €)";
   }
 }
-// the noDiscount class needs not params so no extention, it does however
+// the noDiscount class needs no properties so no extention, it does however
 // need to spit out some info regardin the value of this discount, which is none
 // so just return price and return string "no discount".
 // no constructor needed sinds we have no properties.
