@@ -1,5 +1,5 @@
 //This is called a Union, the discountType can only contain the following 2 values:
-type discountType = "variable" | "fixed" | "none";
+/*type discountType = "variable" | "fixed" | "none";
 
 class Discount {
     private _type: discountType;
