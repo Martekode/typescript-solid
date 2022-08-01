@@ -26,7 +26,7 @@ class User extends TokenInit implements iUserAuth, iFacebookAuth, iGoogleAuth {
     private _password : string = 'user';
 
 
-    checkGoogleLogin(token) {
+    checkGoogleLogin(token : string) : boolean{
         // return "this will not work";
         // hier gebeurd specifieke logica
         return (token === this.token);
@@ -37,7 +37,7 @@ class User extends TokenInit implements iUserAuth, iFacebookAuth, iGoogleAuth {
         this.setToken(token);
     }
 
-    getFacebookLogin(token) {
+    getFacebookLogin(token : string) : boolean{
         // hier gebeurd specifieke logica
         return (token === this.token);
     }
@@ -67,7 +67,7 @@ class Admin implements iUserAuth{
     }
 }
 class GoogleBot extends TokenInit implements iGoogleAuth{
-    checkGoogleLogin(token) {
+    checkGoogleLogin(token : string) {
         // return "this will not work";
         // hier gebeurd specifieke logica
         return (token === this.token);
