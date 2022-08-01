@@ -10,26 +10,41 @@ interface iFacebookAuth{
     setFacebookToken(token : string);
     getFacebookLogin(token : string) : boolean;
 }
-class User implements iUserAuth, iFacebookAuth, iGoogleAuth {
+
+class TokenInit {
+    private _token:string;
+
+    protected get token():string{
+        return this._token;
+    }
+
+    protected  setToken(token:string){
+        this._token = token;
+    }
+}
+class User extends TokenInit implements iUserAuth, iFacebookAuth, iGoogleAuth {
     private _password : string = 'user';
-    private _facebookToken : string;
-    private _googleToken : string;
+
 
     checkGoogleLogin(token) {
         // return "this will not work";
-        return (token === this._googleToken);
+        // hier gebeurd specifieke logica
+        return (token === this.token);
     }
 
     setGoogleToken(token : string) {
-        this._googleToken = token;
+        // hier gebeurd rare google token validatie
+        this.setToken(token);
     }
 
     getFacebookLogin(token) {
-        return (token === this._facebookToken);
+        // hier gebeurd specifieke logica
+        return (token === this.token);
     }
 
     setFacebookToken(token : string) {
-        this._facebookToken = token;
+        // hier gebeurd rare facebook token validatie
+        this.setToken(token);
     }
 
     checkPassword(password: string) : boolean {
@@ -49,5 +64,17 @@ class Admin implements iUserAuth{
 
     resetPassword() {
         this._password = prompt('What is your new password?');
+    }
+}
+class GoogleBot extends TokenInit implements iGoogleAuth{
+    checkGoogleLogin(token) {
+        // return "this will not work";
+        // hier gebeurd specifieke logica
+        return (token === this.token);
+    }
+
+    setGoogleToken(token : string) {
+        // hier gebeurd rare google token validatie
+        this.setToken(token);
     }
 }
