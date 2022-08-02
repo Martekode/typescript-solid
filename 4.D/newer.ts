@@ -1,6 +1,5 @@
-import {Restaurant} from "./Restaurant";
+import { Bakery } from "./RestaurantLibrary/Chains/Bakery";
 
-let JoeMamasBakeries  = new Restaurant();
-JoeMamasBakeries.restaurantLibrary.bakery.oven.prepare("cookies");
-JoeMamasBakeries.restaurantLibrary.bakery.crepery.prepare("crepes");
-
+let JoeMamasBakeries  = new Bakery();
+JoeMamasBakeries.prepareFood("cookies");
+JoeMamasBakeries.prepareFood("crepes");
