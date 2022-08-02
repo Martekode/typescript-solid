@@ -1,3 +1,3 @@
 export interface IPrepare{
-    prepareFoodStove(item:string);
+    prepareFood(item:string);
 }
