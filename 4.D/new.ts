@@ -7,7 +7,7 @@ class CookingDevice{
 interface ICanCook{
     toggleOnDevice():void;
     toggleOffDevice():void;
-    bake(item:string):void;
+    prepare(item:string):void;
 
 }
 class Oven extends CookingDevice implements ICanCook{
@@ -32,7 +32,7 @@ class Oven extends CookingDevice implements ICanCook{
         this._isOn = false;
     }
 
-    public bake(item : string)
+    public prepare(item : string)
     {
         if(this._isOn) {
             setTimeout(function (){
@@ -72,7 +72,7 @@ class Stove extends CookingDevice implements ICanCook{
         this._isOn = false;
     }
 
-    public bake(item : string)
+    public prepare(item : string)
     {
         if(this._isOn) {
             setTimeout(function (){
@@ -111,7 +111,7 @@ class DefaultDevice extends CookingDevice implements ICanCook{
         this._isOn = false;
     }
 
-    public bake(item : string)
+    public prepare(item : string)
     {
         if(this._isOn) {
             setTimeout(function (){
@@ -146,7 +146,7 @@ class Restaurant {
 
     public cook(item : string) {
         this._cookingDevice.toggleOnDevice();
-        this._cookingDevice.bake(item);
+        this._cookingDevice.prepare(item);
         this._cookingDevice.toggleOffDevice();
     }
 }
