@@ -22,7 +22,7 @@ it means that the developer can make different restaurants wether it is a bakery
 
 - you make a new Model for your desired restaurant that you extend from the existing Restaurant Model in the dependencies of the Chains dir
 - every restaurant needs a basic cooking device and that is what the extention is for
-- - this doen not mean you can't override or add new devices and methods to prepare the food
+- - this does not mean you can't override or add new devices and methods to prepare the food
 - you then make all the Device Models that your restaurant needs:
 - - these models also take dependencies, wether it is a parent class or an interface to state what the device needs to do. you can make these in the dependencies of the Devices dir.
 
