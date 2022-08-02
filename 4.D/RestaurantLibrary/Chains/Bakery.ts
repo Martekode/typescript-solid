@@ -1,4 +1,4 @@
-import { Restaurant } from "../Devices/dependencies/Restaurant";
+import { Restaurant } from "./dependencies/Restaurant";
 import { Oven } from "../Devices/Oven";
 import { Stove } from "../Devices/Stove";
 

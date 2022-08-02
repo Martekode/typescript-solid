@@ -1,5 +1,5 @@
 import { IPrepare } from "./IPrepare";
-import { ICanCook } from "./ICanCook";
+import { ICanCook } from "../../Devices/dependencies/ICanCook";
 
 export abstract class Restaurant implements IPrepare{
     // each restaurant needs at least one CookingDevice
