@@ -20,11 +20,11 @@ i decided to make a Restaurant Library. But what does this mean?
 
 it means that the developer can make different restaurants wether it is a bakery or a noodle shop or something else. The use is basically the same.:
 
-- you make a new Model for you desired restaurant that you extend from the existing Restaurant Model in the dependencies of the Chains dir
-- every restaurant needs a bosic cooking device and that is what the extention is for
+- you make a new Model for your desired restaurant that you extend from the existing Restaurant Model in the dependencies of the Chains dir
+- every restaurant needs a basic cooking device and that is what the extention is for
 - - this doen not mean you can't override or add new devices and methods to prepare the food
 - you then make all the Device Models that your restaurant needs:
 - - these models also take dependencies, wether it is a parent class or an interface to state what the device needs to do. you can make these in the dependencies of the Devices dir.
 
-i also want to make a Utencild dir in the Devices dir and add functionality to make utensils like pots and pans of different sizes and volumes.
+i also want to make a Utencils dir in the Devices dir and add functionality to make utensils like pots and pans of different sizes and volumes.
 after that i also could add the Library functionality. This would make it so that you could give multiple restaurant instructions at the same time.
